@@ -7,8 +7,7 @@ For performance reasons the plugin clears its own initiation events when not vis
 [**DEMO**](https://vladthecodeimpaler.github.io/floatingMenu/)
 
 
-icons (optional) - you can use your favourite font package, just provide the icon class in the icon parameter
-
+icons (optional) - you can use your favourite font package, just provide the icon class in the icon parameter. <br />
 note! the demo is using [ionicons](http://ionicons.com/)
 
 **Example usage**
