@@ -8,6 +8,7 @@ For performance reasons the plugin clears its own initiation events when not vis
 
 
 icons (optional) - you can use your favourite font package, just provide the icon class in the icon parameter
+
 note! the demo is using [ionicons](http://ionicons.com/)
 
 **Example usage**
