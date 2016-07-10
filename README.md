@@ -17,7 +17,7 @@ note! the demo is using [ionicons](http://ionicons.com/)
         selector: 'your-selector',
         items: [
             {
-            	icon : 'ion-ios-analytics-outline',
+            	icon : 'ion-social-youtube',
             	title : 'Youtube',
                 action : 'https://www.youtube.com/'
             },
