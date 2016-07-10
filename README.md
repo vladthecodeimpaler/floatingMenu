@@ -46,4 +46,6 @@ note! the demo is using [ionicons](http://ionicons.com/)
 
 TODO:
 
-- Theming best practices
+- option whether url opens in new window or same window <br />
+- option whether menu closes after clicking an item <br />
+- Theming best practices <br />
