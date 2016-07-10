@@ -34,3 +34,6 @@ For performance reasons the plugin clears its own initiation events when not vis
         ]
     });
 ```
+
+TODO:
+	- Theming best practices
