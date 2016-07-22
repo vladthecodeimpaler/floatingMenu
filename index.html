@@ -41,26 +41,31 @@
 		        {
 	                icon : 'ion-social-youtube',
 	                title : 'Youtube',
-	                action : 'https://www.youtube.com/'
+	                action : 'https://youtube.com/',
+	                blank : true, // opens link in new tab (optional)
+	                close : false, // close the menu after the action happene (optional)
+	            },
+	            {
+	                title : 'google',
 	            },
 	            {
 	            	title : 'Insert',
 	                action : function(event) {
 	                	alert('insert');
-	                }
+	                },
 	            },
 	            {
 	            	title : 'Edit',
                     action : function(event) 
                     {
                     	alert('edit');
-                    }
+                    },
 	            },
 	            {
 	            	title : 'Remove',
                     action : function(event) {
                         alert('remove');
-                    }
+                    },
 	            },
 	        ]
 	    });
