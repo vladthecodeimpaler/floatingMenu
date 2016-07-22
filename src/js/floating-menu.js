@@ -224,7 +224,7 @@
             // Hide event
             $(document).on('click.hide.'+this.menuReference, function(event) 
             {
-                if($(event.target).data('menuReference') != _self.menuReference)
+                if(!$(event.target).is(_self.selector) && $(event.target).data('menuReference') != _self.menuReference)
                 {
                     _self.hide();
                 }
