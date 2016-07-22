@@ -18,21 +18,21 @@ $.floatingMenu({
             icon : 'ion-social-youtube',
             title : 'Youtube',
             action : 'https://youtube.com/',
-            blank : true, // opens link in new tab (optional)
-            close : false, // close the menu after the action happene (optional)
+            blank : true, // open url in new tab (optional, defaults to false)
+            close : false, // dont close the menu after and action has happened (optional, defaults to true)
         },
         {
             title : 'google',
             action : 'https://google.com/',
-            close : false, // no effect (optional)
+            close : false, // no effect since there is a redirect (optional)
         },
         {
             title : 'Insert',
             action : function(event) {
                 alert('insert');
             },
-            blank : true, // no effect (optional)
-            close : false, // close the menu after the action happene (optional)
+            blank : true, // no effect since action is not a url (optional, defaults to false)
+            close : false, // dont close the menu after and action has happened (optional, defaults to true)
         },
         {
             title : 'Edit',
