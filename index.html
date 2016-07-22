@@ -47,12 +47,16 @@
 	            },
 	            {
 	                title : 'google',
+	                action : 'https://google.com/',
+	                close : false, // no effect (optional)
 	            },
 	            {
 	            	title : 'Insert',
 	                action : function(event) {
 	                	alert('insert');
 	                },
+	                blank : true, // no effect (optional)
+	                close : false, // close the menu after the action happene (optional)
 	            },
 	            {
 	            	title : 'Edit',
