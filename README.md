@@ -17,28 +17,37 @@ note! the demo is using [ionicons](http://ionicons.com/)
         selector: 'your-selector',
         items: [
             {
-            	icon : 'ion-social-youtube',
-            	title : 'Youtube',
-                action : 'https://www.youtube.com/'
+                icon : 'ion-social-youtube',
+                title : 'Youtube',
+                action : 'https://youtube.com/',
+                blank : true, // opens link in new tab (optional)
+                close : false, // close the menu after the action happene (optional)
             },
             {
-            	title : 'Insert',
+                title : 'google',
+                action : 'https://google.com/',
+                close : false, // no effect (optional)
+            },
+            {
+                title : 'Insert',
                 action : function(event) {
-                	alert('insert');
-                }
+                    alert('insert');
+                },
+                blank : true, // no effect (optional)
+                close : false, // close the menu after the action happene (optional)
             },
             {
-            	title : 'Edit',
+                title : 'Edit',
                 action : function(event) 
                 {
-                	alert('edit');
-                }
+                    alert('edit');
+                },
             },
             {
-            	title : 'Remove',
+                title : 'Remove',
                 action : function(event) {
                     alert('remove');
-                }
+                },
             },
         ]
     });

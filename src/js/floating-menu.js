@@ -26,20 +26,34 @@
             this.$menuTemplate = $(this.markup).data('menuReference', this.menuReference);
 
             // generate mennu items
-
             var $li = null;
             var $a = null;
 
             options.items.forEach(function(item)
             {
+                // cache the action type
+                var type = null;
+                var href = '#';
+
+                // reset li item
                 $li = $("<li></li>");
                 
                 if(item.action instanceof Function)
                 {
-                    $a = $("<a href='javascript:void(null);'>" + item.title + "</a>").click({plugin: this, callback: item.action, closeMenu: true}, this.actionHandler);
-                } else {
-                    $a = $("<a href='"+ item.action +"' target='_blank'>" + item.title + "</a>");
+                    type = 'fn';
+                } 
+                else if (typeof item.action === 'string' || item.action instanceof String) 
+                {
+                    type = 'url';
+                    href = item.action;
+                } 
+                else
+                {
+                    throw(new Error('floatingMenu: ERROR, invalid action type'));
+                    return false;
                 }
+
+                $a = $("<a href='" + href + "'>" + item.title + "</a>").click({type: type, item: item}, $.proxy(this.actionHandler, this));
 
                 if(item.icon != undefined)
                 {
@@ -57,16 +71,30 @@
             $(document).on('click.show.'+this.menuReference, this.selector, $.proxy(this.calloutHandler, this));
         },
 
-        // Handler for the menu elements click actions
+        // Handler for the menu elements click action
         actionHandler: function(event)
         {
-            event.data.callback(event);
+            event.preventDefault();
 
-            if (event.data.closeMenu)
-            {
-                event.data.plugin.hide();
+            this.$this.trigger("beforeAction", [event]);
+
+            switch (event.data.type) {
+                case ('fn'):
+                    event.data.item.action(event);
+                    break;
+                case ('url'):
+                    (event.data.item.blank) ? window.open(event.data.item.action, '_blank') : window.location.assign(event.data.item.action);
+                    break;
             }
+
+            if (event.data.item.close !== false)
+            {
+                this.hide();
+            }
+
+            this.$this.trigger("afterAction", [event]);
         },
+        // Invoking handler
         calloutHandler: function(event) 
         {
             var $callout = $(event.target);
@@ -192,11 +220,11 @@
         attachShowEvents: function() 
         {
             var _self = this;
-
+            
             // Hide event
             $(document).on('click.hide.'+this.menuReference, function(event) 
             {
-                if($(event.target).data != _self.menuReference && !$(event.target).is(_self.selector))
+                if($(event.target).data('menuReference') != _self.menuReference)
                 {
                     _self.hide();
                 }
