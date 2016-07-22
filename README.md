@@ -11,27 +11,40 @@ note! the demo is using [ionicons](http://ionicons.com/)
 **Example usage**
 
 ```javascript
+$.floatingMenu({
+    selector: 'your-selector',
+    items: [
+        {
+            icon : 'ion-social-youtube',
+            title : 'Youtube',
+            action : 'https://youtube.com/',
+            blank : true, // opens link in new tab (optional)
+            close : false, // close the menu after the action happene (optional)
+        },
+        {
+            title : 'google',
+            action : 'https://google.com/',
+            close : false, // no effect (optional)
+        },
+        {
+            title : 'Insert',
+            action : function(event) {
+                alert('insert');
             },
+            blank : true, // no effect (optional)
+            close : false, // close the menu after the action happene (optional)
+        },
+        {
+            title : 'Edit',
+            action : function(event) 
             {
-                title : 'Insert',
-                action : function(event) {
-                    alert('insert');
-                },
-                blank : true, // no effect (optional)
-                close : false, // close the menu after the action happene (optional)
+                alert('edit');
             },
-            {
-                title : 'Edit',
-                action : function(event) 
-                {
-                    alert('edit');
-                },
-            },
-            {
-                title : 'Remove',
-                action : function(event) {
-                    alert('remove');
-                },
+        },
+        {
+            title : 'Remove',
+            action : function(event) {
+                alert('remove');
             },
         },
     ]
@@ -49,6 +62,7 @@ $fm.on('afterShow', function(event)
 });
 ```
 
+<br />
 TODO:
 
 - ~~option whether url opens in new window or same window~~ <br />
